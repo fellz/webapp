@@ -1,0 +1,51 @@
+Elm.Players = Elm.Players || {};
+Elm.Players.List = Elm.Players.List || {};
+Elm.Players.List.make = function (_elm) {
+   "use strict";
+   _elm.Players = _elm.Players || {};
+   _elm.Players.List = _elm.Players.List || {};
+   if (_elm.Players.List.values) return _elm.Players.List.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $Html = Elm.Html.make(_elm),
+   $Html$Attributes = Elm.Html.Attributes.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Players$Actions = Elm.Players.Actions.make(_elm),
+   $Players$Models = Elm.Players.Models.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm);
+   var _op = {};
+   var playerRow = F3(function (address,model,player) {
+      return A2($Html.tr,
+      _U.list([]),
+      _U.list([A2($Html.td,_U.list([]),_U.list([$Html.text($Basics.toString(player.id))]))
+              ,A2($Html.td,_U.list([]),_U.list([$Html.text(player.name)]))
+              ,A2($Html.td,_U.list([]),_U.list([$Html.text($Basics.toString(player.level))]))
+              ,A2($Html.td,_U.list([]),_U.list([]))]));
+   });
+   var list = F2(function (address,model) {
+      return A2($Html.div,
+      _U.list([]),
+      _U.list([A2($Html.table,
+      _U.list([$Html$Attributes.$class("table-light")]),
+      _U.list([A2($Html.thead,
+              _U.list([]),
+              _U.list([A2($Html.tr,
+              _U.list([]),
+              _U.list([A2($Html.th,_U.list([]),_U.list([$Html.text("Id")]))
+                      ,A2($Html.th,_U.list([]),_U.list([$Html.text("Name")]))
+                      ,A2($Html.th,_U.list([]),_U.list([$Html.text("Level")]))
+                      ,A2($Html.th,_U.list([]),_U.list([$Html.text("Actions")]))]))]))
+              ,A2($Html.tbody,_U.list([]),A2($List.map,A2(playerRow,address,model),model.players))]))]));
+   });
+   var nav = F2(function (address,model) {
+      return A2($Html.div,
+      _U.list([$Html$Attributes.$class("clearfix mb2 white bg-black")]),
+      _U.list([A2($Html.div,_U.list([$Html$Attributes.$class("left p2")]),_U.list([$Html.text("Players")]))]));
+   });
+   var view = F2(function (address,model) {    return A2($Html.div,_U.list([]),_U.list([A2(nav,address,model),A2(list,address,model)]));});
+   var ViewModel = function (a) {    return {players: a};};
+   return _elm.Players.List.values = {_op: _op,ViewModel: ViewModel,view: view,nav: nav,list: list,playerRow: playerRow};
+};

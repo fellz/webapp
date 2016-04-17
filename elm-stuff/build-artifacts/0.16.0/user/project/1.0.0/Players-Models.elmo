@@ -1,0 +1,19 @@
+Elm.Players = Elm.Players || {};
+Elm.Players.Models = Elm.Players.Models || {};
+Elm.Players.Models.make = function (_elm) {
+   "use strict";
+   _elm.Players = _elm.Players || {};
+   _elm.Players.Models = _elm.Players.Models || {};
+   if (_elm.Players.Models.values) return _elm.Players.Models.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm);
+   var _op = {};
+   var $new = {id: 0,name: "",level: 1};
+   var Player = F3(function (a,b,c) {    return {id: a,name: b,level: c};});
+   return _elm.Players.Models.values = {_op: _op,Player: Player,$new: $new};
+};

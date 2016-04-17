@@ -1,0 +1,18 @@
+Elm.Models = Elm.Models || {};
+Elm.Models.make = function (_elm) {
+   "use strict";
+   _elm.Models = _elm.Models || {};
+   if (_elm.Models.values) return _elm.Models.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Players$Models = Elm.Players.Models.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm);
+   var _op = {};
+   var initialModel = {players: _U.list([A3($Players$Models.Player,1,"Sam",1)])};
+   var AppModel = function (a) {    return {players: a};};
+   return _elm.Models.values = {_op: _op,AppModel: AppModel,initialModel: initialModel};
+};
